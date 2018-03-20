@@ -6,6 +6,9 @@ var geometry, root;
 
 var mouseX=0, mouseY=0;
 
+var windowHalfX = window.innerWidth / 2;
+var windowHalfY = window.innerHeight / 2;
+
 // event listener
 document.addEventListener('mousemove', onDocumentMouseMove, false);
 
@@ -111,6 +114,14 @@ function init(){
 // }
 
 function onDocumentMouseMove(event){
+
+    mouseX = ( event.clientX - windowHalfX ) * 10;
+    mouseY = ( event.clientY - windowHalfY ) * 10;
+
+}
+
+function animate(){
+
     requestAnimationFrame( animate );
     render();
 
