@@ -31,7 +31,8 @@ function init(){
     scene = new THREE.Scene();
     scene.background = new THREE.Color( 0xffffff );
 
-    var geometry = new THREE.BoxGeometry( 100,100,100 );
+    // var geometry = new THREE.BoxGeometry( 100,100,100 );
+    var geometry = new THREE.CylinderGeometry(50, 50, 20, 32);
     var material = new THREE.MeshNormalMaterial(); // A material that maps the normal vectors to RGB colors.
 
     root = new THREE.Mesh( geometry, material );
