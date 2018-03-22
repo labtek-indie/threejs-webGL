@@ -31,15 +31,21 @@ function init(){
     scene = new THREE.Scene();
     scene.background = new THREE.Color( 0xffffff );
 
-    // var geometry = new THREE.BoxGeometry( 100,100,100 );
-    var geometry = new THREE.CylinderGeometry(50, 50, 20, 32);
-    var material = new THREE.MeshNormalMaterial(); // A material that maps the normal vectors to RGB colors.
+    var geometry = new THREE.BoxGeometry( 50,50,50 );
+    // var geometry = new THREE.CylinderGeometry(50, 50, 20, 32);
+    // var material = new THREE.MeshNormalMaterial(); // A material that maps the normal vectors to RGB colors.
+    var material = new THREE.LineBasicMaterial( {
+        color: 0x101fff,
+        linewidth: 1,
+        linecap: 'round', //ignored by WebGLRenderer
+        linejoin:  'round' //ignored by WebGLRenderer
+    } );
 
     root = new THREE.Mesh( geometry, material );
     root.position.x = 1000;
     scene.add( root );
 
-    var amount = 200; 
+    var amount = 300; 
     var object, parent = root;
 
     for ( var i = 0; i < amount; i++ ){
@@ -133,8 +139,11 @@ function render(){
     var time = Date.now() * 0.001;
 
     // editable
-    var rx = Math.sin( time * 0.7 ) * 0.2;
+    // var rx = 0;
+    var rx = Math.sin( time * 0.5 ) * 0.2;
+    // var ry = 0;
     var ry = Math.sin( time * 0.3 ) * 0.1;
+    // var rz = 0;
     var rz = Math.sin( time * 0.2 ) * 0.1;
 
     camera.position.x += ( mouseX - camera.position.x ) * .05;
